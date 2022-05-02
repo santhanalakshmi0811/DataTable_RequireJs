@@ -1,0 +1,388 @@
+<html>
+    <head>
+        <title>Require JS to show Employee details</title>
+        <link rel="Stylesheet" href="css/jqx.base.css" type="text/css" />
+        <link rel="Stylesheet" href="css/datatable.css" type="text/css" />
+        <script type="text/javascript" data-main="js/main" src="js/require.js"></script>
+            
+    </head>
+    <body>
+        <div>
+            
+            <div id="country">
+	        <input type="checkbox" name="country" value="Japan">Japan
+		<input type="checkbox" name="country" value="US">US
+		<input type="checkbox" name="country" value="Scotland">Scotland
+		<input type="checkbox" name="country" value="England">England
+	    </div>
+	    <div id="city">
+		<input type="checkbox" name="city" value="Edinburgh">Edinburgh
+		<input type="checkbox" name="city" value="London">London
+		<input type="checkbox" name="city" value="Sacramento">Sacramento
+		<input type="checkbox" name="city" value="San Francisco">San Francisco
+		<input type="checkbox" name="city" value="Tokyo">Tokyo
+	    </div>
+        
+        
+            <!-- Filter section --------->
+            <table border="0" cellspacing="5" cellpadding="5">
+                <tbody>
+                    <tr>
+                        <td>
+                            <select name="age_filter" id="age_filter">
+                                <option value=''>Choose age</option>
+                                <option value='20-30'>20-30</option>
+                                <option value='30-40'>30-40</option>
+                                <option value='40-50'>40-50</option>
+                                <option value='50-60'>50-60</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="salary_filter" id="salary_filter">
+                                <option value="">Choose salary</option>
+                                <option value="10000-20000">10000-20000</option>
+                                <option value="20000-30000">20000-30000</option>
+                                <option value="30000-40000">30000-40000</option>
+                                <option value="40000-50000">40000-50000</option>
+                            </select>
+                        </td>
+                    </tr>
+                
+                </tbody>
+            </table>
+            <input type="button" id="btn_reset" value="Reset"><hr>
+            <table id="employee" class="display" style="width:100%">
+		<thead>
+		    <tr>
+		        <th>Name</th>
+		        <th>Age</th>
+		        <th>Office Name</th>
+		        <th>Joined Date</th>
+		        <th>Salary($)</th>
+		        <th>Email</th>
+		        <th>Phone number</th>
+		        <th>City</th>
+		        <th>Country</th>
+		        <th>Zip code</th>
+		    </tr>
+		</thead>
+		<tbody>
+		    <tr>
+		        <td>Tiger Nixon</td>
+		        <td>31</td>
+		        <td>Sys Architect comp</td>
+		        <td>2011/04/25</td>
+		        <td>20000</td>
+		        <td>tiger.n@mail.com</td>
+		        <td>1234567890</td>
+		        <td>Edinburgh</td>
+		        <td>Scotland</td>
+		        <td>309876</td>
+		    </tr>
+		    <tr>
+		        <td>Garrett Winters</td>
+		        <td>42</td>
+		        <td>GW Accountant Inc.</td>
+		        <td>2011/07/25</td>
+		        <td>10000</td>
+		        <td>garrett.w@gmail.com</td>
+		        <td>8890673444</td>
+		        <td>Tokyo</td>
+		        <td>Japan</td>
+		        <td>678905</td>
+		    </tr>
+		    <tr>
+		        <td>Ashton Cox</td>
+		        <td>36</td>
+		        <td>Ashton Technical instute</td>
+		        <td>2009/01/12</td>
+		        <td>20000</td>
+		        <td>ashton.co@gmail.com</td>
+		        <td>6735900723</td>
+		        <td>San Francisco</td>
+		        <td>US</td>
+		        <td>941203</td>
+		    </tr>
+		    <tr>
+		        <td>Cedric Kelly</td>
+		        <td>22</td>
+		        <td>cedric solution</td>
+		        <td>2012/03/29</td>
+		        <td>18000</td>
+		        <td>cedric.ke@gmail.com</td>
+		        <td>7890356821</td>
+		        <td>Edinburgh</td>
+		        <td>Scotland</td>
+		        <td>309876</td>
+		    </tr>
+		    <tr>
+		        <td>Airi Satou</td>
+		        <td>33</td>
+		        <td>Airi company</td>
+		        <td>2008/11/28</td>
+		        <td>25000</td>
+		        <td>airi.sa@gmail.com</td>
+		        <td>9567843210</td>
+		        <td>Tokyo</td>
+		        <td>Japan</td>
+		        <td>678905</td>
+		    </tr>
+		    <tr>
+		        <td>Brielle Williamson</td>
+		        <td>41</td>
+		        <td>Integration solution</td>
+		        <td>2012/12/02</td>
+		        <td>35000</td>
+		        <td>brielle.wi@gmail.com</td>
+		        <td>6789823456</td>
+		        <td>San Francisco</td>
+		        <td>US</td>
+		        <td>941203</td>
+		    </tr>
+		    <tr>
+		        <td>Herrod Chandler</td>
+		        <td>59</td>
+		        <td>Sales Assosiation</td>
+		        <td>2012/08/06</td>
+		        <td>45000</td>
+		        <td>herrod.ch@gmail.com</td>
+		        <td>5679209763</td>
+		        <td>San Francisco</td>
+		        <td>US</td>
+		        <td>941203</td>
+		    </tr>
+		    <tr>
+		        <td>Rhona Davidson</td>
+		        <td>26</td>
+		        <td>Integration Special service</td>
+		        <td>2010/10/14</td>
+		        <td>18000</td>
+		        <td>rhona.da@gmail.com</td>
+		        <td>8808367123</td>
+		        <td>Sacramento</td>
+		        <td>US</td>
+		        <td>95603</td>
+		    </tr>
+		    <tr>
+		        <td>Colleen Hurst</td>
+		        <td>39</td>
+		        <td>Wipro</td>
+		        <td>2009/09/15</td>
+		        <td>35000</td>
+		        <td>colleen.hu@gmail.com</td>
+		        <td>7733092134</td>
+		        <td>Sacramento</td>
+		        <td>US</td>
+		        <td>95603</td>
+		    </tr>
+		    <tr>
+		        <td>Sonya Frost</td>
+		        <td>43</td>
+		        <td>Infosys</td>
+		        <td>2008/12/13</td>
+		        <td>31000</td>
+		        <td>sonya.fr@gmail.com</td>
+		        <td>6534897653</td>
+		        <td>Edinburgh</td>
+		        <td>Scotland</td>
+		        <td>309876</td>
+		    </tr>
+		    <tr>
+		        <td>Jena Gaines</td>
+		        <td>30</td>
+		        <td>HCL</td>
+		        <td>2008/12/19</td>
+		        <td>49000</td>
+		        <td>jena.ga@gmail.com</td>
+		        <td>9988776655</td>
+		        <td>London</td>
+		        <td>England</td>
+		        <td>456870</td>
+		    </tr>
+		    <tr>
+		        <td>Quinn Flynn</td>
+		        <td>52</td>
+		        <td>TCS</td>
+		        <td>2013/03/03</td>
+		        <td>45000</td>
+		        <td>quinn.fl@gmail.com</td>
+		        <td>6699002233</td>
+		        <td>Edinburgh</td>
+		        <td>Scotland</td>
+		        <td>309876</td>
+		    </tr>
+		    <tr>
+		        <td>Charde Marshall</td>
+		        <td>46</td>
+		        <td>CTS</td>
+		        <td>2008/10/16</td>
+		        <td>42000</td>
+		        <td>chandre.ma@gmail.com</td>
+		        <td>8895321367</td>
+		        <td>London</td>
+		        <td>England</td>
+		        <td>456870</td>
+		    </tr>
+		    <tr>
+		        <td>Haley Kennedy</td>
+		        <td>43</td>
+		        <td>Google</td>
+		        <td>2012/12/18</td>
+		        <td>19000</td>
+		        <td>haley.ke@gmail.com</td>
+		        <td>6783299001</td>
+		        <td>Tokyo</td>
+		        <td>Japan</td>
+		        <td>678905</td>
+		    </tr>
+		    <tr>
+		        <td>Tatyana Fitzpatrick</td>
+		        <td>25</td>
+		        <td>Apple</td>
+		        <td>2010/03/17</td>
+		        <td>28000</td>
+		        <td>tatyana.fi@gmail.com</td>
+		        <td>6432308789</td>
+		        <td>London</td>
+		        <td>England</td>
+		        <td>456870</td>
+		    </tr>
+		    <tr>
+		        <td>Michael Silva</td>
+		        <td>56</td>
+		        <td>Google</td>
+		        <td>2012/11/27</td>
+		        <td>35000</td>
+		        <td>michael.si@gmail.com</td>
+		        <td>9159108255</td>
+		        <td>London</td>
+		        <td>England</td>
+		        <td>456870</td>
+		    </tr>
+		    <tr>
+		        <td>Paul Byrd</td>
+		        <td>28</td>
+		        <td>CFO</td>
+		        <td>2010/06/09</td>
+		        <td>32000</td>
+		        <td>paul.by@gmail.com</td>
+		        <td>9791660674</td>
+		        <td>Tokyo</td>
+		        <td>Japan</td>
+		        <td>678905</td>
+		        
+		    </tr>
+		    <tr>
+		        <td>Gloria Little</td>
+		        <td>59</td>
+		        <td>Yahoo</td>
+		        <td>2009/04/10</td>
+		        <td>45000</td>
+		        <td>gloria.li@gmail.com</td>
+		        <td>8098799007</td>
+		        <td>Tokyo</td>
+		        <td>Japan</td>
+		        <td>678905</td>
+		    </tr>
+		    <tr>
+		        <td>Bradley Greer</td>
+		        <td>51</td>
+		        <td>Yahoo</td>
+		        <td>2012/10/13</td>
+		        <td>49000</td>
+		        <td>bradley.gr@gmail.com</td>
+		        <td>8765490876</td>
+		        <td>Sacramento</td>
+		        <td>US</td>
+		        <td>95603</td>
+		    </tr>
+		    <tr>
+		        <td>Dai Rios</td>
+		        <td>47</td>
+		        <td>HCL</td>
+		        <td>2012/09/26</td>
+		        <td>42000</td>
+		        <td>dai.ri@gmail.com</td>
+		        <td>8902126677</td>
+		        <td>Sacramento</td>
+		        <td>US</td>
+		        <td>95603</td>
+		    </tr>
+		    <tr>
+		        <td>Jenette Caldwell</td>
+		        <td>39</td>
+		        <td>TCS</td>
+		        <td>2011/09/03</td>
+		        <td>36000</td>
+		        <td>jenette.ca@gmail.com</td>
+		        <td>9966774532</td>
+		        <td>London</td>
+		        <td>England</td>
+		        <td>456870</td>
+		    </tr>
+		    <tr>
+		        <td>Yuri Berry</td>
+		        <td>22</td>
+		        <td>CTS</td>
+		        <td>2009/06/25</td>
+		        <td>15000</td>
+		        <td>yuri.be@gmail.com</td>
+		        <td>6098722331</td>
+		        <td>London</td>
+		        <td>England</td>
+		        <td>456870</td>
+		    </tr>
+		    <tr>
+		        <td>Caesar Vance</td>
+		        <td>34</td>
+		        <td>Google</td>
+		        <td>2011/12/12</td>
+		        <td>28000</td>
+		        <td>caesar.va@gmail.com</td>
+		        <td>9998887773</td>
+		        <td>Edinburgh</td>
+		        <td>Scotland</td>
+		        <td>309876</td>
+		    </tr>
+		    <tr>
+		        <td>Doris Wilder</td>
+		        <td>49</td>
+		        <td>Yahoo</td>
+		        <td>2010/09/20</td>
+		        <td>39000</td>
+		        <td>doris.wi@gmail.com</td>
+		        <td>8760932456</td>
+		        <td>Edinburgh</td>
+		        <td>Scotland</td>
+		        <td>309876</td>
+		    </tr>
+		    <tr>
+		        <td>Angelica Ramos</td>
+		        <td>20</td>
+		        <td>Infosys</td>
+		        <td>2009/10/09</td>
+		        <td>16000</td>
+		        <td>angelica.ra@gmail.com</td>
+		        <td>0877756231</td>
+		        <td>San Francisco</td>
+		        <td>US</td>
+		        <td>941203</td>
+		    </tr>
+		    <tr>
+		        <td>Gavin Joyce</td>
+		        <td>42</td>
+		        <td>HCL</td>
+		        <td>2010/12/22</td>
+		        <td>39000</td>
+		        <td>gavin.jo@gmail.com</td>
+		        <td>9087654346</td>
+		        <td>San Francisco</td>
+		        <td>US</td>
+		        <td>941203</td>
+		    </tr>
+              </tbody>
+	   </table>
+        
+        </div>
+    </body>
+</html>

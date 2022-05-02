@@ -1,0 +1,8 @@
+#tbl_product_filter
+{
+    display:none;
+}
+td:not(.cls_prod)
+{
+  text-align: center;
+}

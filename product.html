@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>Require JS to show product</title>
+        <script type="text/javascript">
+            window.onload = function() {
+                var data=localStorage.getItem("prod_data");
+                document.getElementById("prod_data").innerHTML = data;
+            }
+
+        </script>
+    </head>
+    <body>
+        <div id='prod_data'>
+        </div>
+    </body>
+</html>
