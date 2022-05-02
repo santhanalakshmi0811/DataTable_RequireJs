@@ -8,7 +8,7 @@
 
 require(["jquery", "datatables"], function ($) {
 
-
+    // Country filter section
     $.fn.dataTable.ext.search.push(function( settings, searchData, index, rowData, counter ) {
           var countries = $('input:checkbox[name="country"]:checked').map(function() {
               return this.value;
@@ -25,7 +25,7 @@ require(["jquery", "datatables"], function ($) {
           return false;
       });
       
-      
+      // City filter section
       $.fn.dataTable.ext.search.push(function( settings, searchData, index, rowData, counter ) {
           var cities = $('input:checkbox[name="city"]:checked').map(function() {
               return this.value;
@@ -43,8 +43,8 @@ require(["jquery", "datatables"], function ($) {
       });
       
       
-       
-       $.fn.dataTable.ext.search.push(function( settings, data, dataIndex ) {
+      // Age range filter section
+      $.fn.dataTable.ext.search.push(function( settings, data, dataIndex ) {
             var age_range = $('#age_filter').val();
             if(age_range!='')
             {
@@ -64,7 +64,8 @@ require(["jquery", "datatables"], function ($) {
                 return true;
        });
        
-        $.fn.dataTable.ext.search.push(function( settings, data, dataIndex ) {
+       // Salary filter range section
+       $.fn.dataTable.ext.search.push(function( settings, data, dataIndex ) {
             
             var salary_range = $('#salary_filter').val();
             if(salary_range!='')
@@ -85,35 +86,38 @@ require(["jquery", "datatables"], function ($) {
             
        });
        
-    $("#document").ready(function () {
+     $("#document").ready(function () {
     
-              
+         // Data table intialization      
          var table= $('#employee').DataTable( {
                      "searching" : true,
                      
-                  } );  
+         } );  
             
+         //City and country checkbox filter   
+         $('input:checkbox').on('change', function () {
+             table.draw();
+         });
             
-       $('input:checkbox').on('change', function () {
-           table.draw();
-       });
-            
-       $('#age_filter').change( function() {
-          table.draw();
-       } );
+         //Age filter range dropdown filter
+         $('#age_filter').change( function() {
+             table.draw();
+         } );
     
-       $('#salary_filter').change( function() {
-           table.draw();
-       });
+         //Salary filter range dropdown filter
+         $('#salary_filter').change( function() {
+             table.draw();
+         });
        
-       $('#btn_reset').click (function(){
-           $('input:checkbox[name="country"]').prop('checked', '');
-           $('input:checkbox[name="city"]').prop('checked', '');
-           $('#salary_filter').val('');
-           $('#age_filter').val('');
-           table.search('').draw();
+         //Reset button click function
+         $('#btn_reset').click (function(){
+             $('input:checkbox[name="country"]').prop('checked', '');
+             $('input:checkbox[name="city"]').prop('checked', '');
+             $('#salary_filter').val('');
+             $('#age_filter').val('');
+             table.search('').draw();
 
-       });
+         });
             
     });
     
